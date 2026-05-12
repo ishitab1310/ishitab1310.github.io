@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Achievements — Ishita Bansal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>/* no-flash */(function(){var t=localStorage.getItem("ib-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <style>
+    /* ── PUBLICATIONS ── */
+    .pub {
+      border-left: 2px solid var(--accent);
+      padding: 1.5rem 1.75rem;
+      background: var(--glass);
+      border-radius: 0 12px 12px 0;
+      margin-bottom: 1.25rem;
+      transition: background var(--t), border-color var(--t);
+    }
+    .pub:hover { background: var(--glass-h); border-left-color: var(--accent2); }
+    .pub-venue {
+      font-family: var(--ff-m); font-size: .68rem;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: .5rem;
+    }
+    .pub-title {
+      font-family: var(--ff-d); font-size: 1.2rem;
+      font-weight: 400; color: var(--text);
+      line-height: 1.4; margin-bottom: .5rem;
+    }
+    .pub-authors { font-size: .84rem; color: var(--text2); margin-bottom: .75rem; }
+    .pub-authors strong { color: var(--accent3); }
+    .pub-links { display:flex; gap:1rem; }
+    .pub-link {
+      font-family: var(--ff-m); font-size:.68rem;
+      letter-spacing:.1em; text-transform:uppercase;
+      color:var(--accent); text-decoration:none;
+      border-bottom:1px solid transparent; padding-bottom:1px;
+      transition:border-color var(--t);
+    }
+    .pub-link:hover { border-bottom-color:var(--accent); }
+
+    /* ── AWARD CARDS ── */
+    .awards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+      gap: 1.2rem;
+    }
+    .aw {
+      background: var(--glass); border: 1px solid var(--gb);
+      border-radius: 12px; padding: 1.4rem;
+      transition: background var(--t), border-color var(--t), transform var(--t);
+      position: relative; overflow: hidden;
+    }
+    .aw::before {
+      content: ''; position:absolute; top:0; left:0; right:0; height:2px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 2px 2px 0 0;
+    }
+    .aw:hover { background:var(--glass-h); border-color:var(--gb-h); transform:translateY(-3px); }
+    .aw-year { font-family:var(--ff-m); font-size:.65rem; letter-spacing:.1em; color:var(--accent); margin-bottom:.45rem; }
+    .aw-title { font-family:var(--ff-d); font-size:1.15rem; font-weight:400; color:var(--text); margin-bottom:.3rem; line-height:1.35; }
+    .aw-desc  { font-size:.82rem; color:var(--text2); line-height:1.65; }
+
+    /* ── COURSES ── */
+    .courses {
+      columns: 2; column-gap: 2.5rem; list-style: none;
+    }
+    .courses li {
+      font-size: .9rem; color: var(--text2);
+      padding: .5rem 0;
+      border-bottom: 1px solid rgba(242,160,77,.07);
+      break-inside: avoid;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .courses li::before { content:'◆'; font-size:.4rem; color:var(--accent); flex-shrink:0; }
+    @media(max-width:560px){ .courses{ columns:1; } }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Ishita <span>Bansal</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="th-icon th-sun">☀</span>
+      <span class="th-icon th-moon">◑</span>
+    </button>
+    <button class="nav-hbg" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-hero">
+      <div class="container">
+        <p class="sec-label reveal">Recognition</p>
+        <h1 class="reveal rv1"><em>Achievements</em></h1>
+        <p class="reveal rv2">Publications, awards, and milestones earned along the way.</p>
+      </div>
+    </div>
+
+    <!-- PUBLICATIONS -->
+    <section class="section" style="padding-top:0; border-bottom:1px solid var(--gb);">
+      <div class="container">
+        <div class="sec-hd">
+          <p class="sec-label reveal">Research output</p>
+          <h2 class="sec-title reveal rv1">Publications &amp; <em>Papers</em></h2>
+        </div>
+
+        <div class="reveal rv2">
+          <div class="pub">
+            <div class="pub-venue">ACL Student Research Workshop · July 2025 · Vienna, Austria</div>
+            <div class="pub-title">The Evolution of Gen Alpha Slang: Linguistic Patterns and AI Translation Challenges</div>
+            <div class="pub-authors"><strong>Ishita Bansal</strong>, Radhika Mamidi</div>
+            <p style="font-size:.84rem;color:var(--text3);line-height:1.7;margin-bottom:.85rem;">
+              Examined the rapid evolution of Gen Alpha slang through comparative analysis of Millennial and Gen Z vernacular. Identified three core linguistic patterns: extreme lexical compression, digital culture-driven semantic shifts, and part-of-speech conversion. Evaluated four AI translation systems on 100+ slang terms — revealing critical limitations in cultural contextualization.
+            </p>
+            <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.85rem;">
+              <span class="tag">Sociolinguistics</span><span class="tag">NLP Evaluation</span><span class="tag">Gen Alpha</span><span class="tag">Corpus Study</span>
+            </div>
+            <div class="pub-links">
+              <a href="https://aclanthology.org/2025.acl-srw.43.pdf" target="_blank" class="pub-link">Paper PDF →</a>
+              <a href="https://aclanthology.org/2025.acl-srw.43/" target="_blank" class="pub-link">ACL Anthology →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS -->
+    <section class="section" style="border-bottom:1px solid var(--gb);">
+      <div class="container">
+        <div class="sec-hd">
+          <p class="sec-label reveal">Honors</p>
+          <h2 class="sec-title reveal rv1">Awards &amp; <em>Recognitions</em></h2>
+        </div>
+        <div class="awards-grid">
+          <div class="aw reveal">
+            <div class="aw-year">2023</div>
+            <div class="aw-title">Google Women Engineers Program</div>
+            <div class="aw-desc">Selected for the Women Engineers Program by Google and TalentSprint — a highly competitive program for women in tech across India.</div>
+          </div>
+          <div class="aw reveal rv1">
+            <div class="aw-year">Pre-2022</div>
+            <div class="aw-title">NTSE Scholar</div>
+            <div class="aw-desc">National Talent Search Examination Scholar. Selected for a 4-year scholarship for higher studies — one of India's most prestigious school-level academic honors.</div>
+          </div>
+          
+        
+      </div>
+    </section>
+
+    <!-- COURSES -->
+    <section class="section">
+      <div class="container">
+        <div class="sec-hd">
+          <p class="sec-label reveal">Coursework</p>
+          <h2 class="sec-title reveal rv1">Relevant <em>Courses</em></h2>
+        </div>
+        <ul class="courses reveal rv2">
+          <li>Natural Language Processing</li>
+          <li>Statistical Methods in AI</li>
+          <li>Computational Morphology</li>
+          <li>Discourse and Dialogue</li>
+          <li>Machine Learning</li>
+          <li>Deep Learning</li>
+          <li>Human-Computer Interaction</li>
+          <li>Visual Communication Design</li>
+          <li>Information Theory</li>
+          <li>Syntax and Semantics</li>
+          <li>Knowledge Representation</li>
+          <li>Phonology &amp; Phonetics</li>
+          <li>Algorithms &amp; Data Structures</li>
+          <li>Computer Vision</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>© 2025 Ishita Bansal</span>
+      <span>IIIT Hyderabad · 2022–2027</span>
+      <span><a href="contact.html">Get in touch →</a></span>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

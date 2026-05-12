@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobbies — Ishita Bansal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>/* no-flash */(function(){var t=localStorage.getItem("ib-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <style>
+    .hob-sec {
+      padding: clamp(48px,7vw,80px) 0;
+      border-bottom: 1px solid var(--gb);
+    }
+    .hob-sec:last-of-type { border-bottom: none; }
+
+    .hob-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px,6vw,80px);
+      align-items: center;
+    }
+    .hob-grid.rev { direction: rtl; }
+    .hob-grid.rev > * { direction: ltr; }
+
+    .hob-visual {
+      aspect-ratio: 4/3;
+      border-radius: 14px;
+      border: 1px solid var(--gb);
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      position: relative;
+    }
+
+    /* CSS art per hobby */
+    .vis-photo {
+      background: linear-gradient(135deg,#1a1210,#2d1f15,#1a1210);
+    }
+    .vis-books {
+      background: linear-gradient(135deg,#0f1a10,#1a2a18);
+    }
+    .vis-music {
+      background: linear-gradient(135deg,#1a0f1f,#2d1a30);
+    }
+    .vis-type {
+      background: linear-gradient(135deg,#1a1510,#2a2010);
+    }
+
+    /* ── Camera aperture ── */
+    .cam {
+      width:110px; height:110px; border-radius:50%;
+      border:2px solid var(--accent);
+      box-shadow:0 0 28px var(--glow), 0 0 60px rgba(242,160,77,.04);
+      position:relative; display:flex; align-items:center; justify-content:center;
+    }
+    .cam::before {
+      content:''; position:absolute; inset:12px;
+      border-radius:50%; border:1px solid rgba(242,160,77,.3);
+    }
+    .cam::after {
+      content:''; position:absolute; inset:24px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(242,160,77,.18),transparent 70%);
+    }
+    .cam-center {
+      width:18px; height:18px; border-radius:50%;
+      background:var(--accent); opacity:.4; z-index:1;
+    }
+
+    /* ── Book stack ── */
+    .books-art {
+      display: flex; flex-direction: column-reverse; align-items: center; gap: 4px;
+    }
+    .book {
+      border-radius: 3px; opacity: .7;
+    }
+
+    /* ── Music bars ── */
+    .bars {
+      display:flex; align-items:flex-end; gap:5px; height:80px;
+    }
+    .bar {
+      width:9px; border-radius:4px 4px 2px 2px;
+      transform-origin: bottom;
+    }
+    .bar:nth-child(1){background:var(--accent);  animation:b1 1.2s ease-in-out infinite; height:40px;}
+    .bar:nth-child(2){background:var(--accent2); animation:b2 1.0s ease-in-out infinite; height:60px;}
+    .bar:nth-child(3){background:var(--accent3); animation:b3 1.4s ease-in-out infinite; height:30px;}
+    .bar:nth-child(4){background:var(--accent);  animation:b2 0.8s ease-in-out infinite; height:70px;}
+    .bar:nth-child(5){background:var(--accent2); animation:b1 1.1s ease-in-out infinite; height:50px;}
+    .bar:nth-child(6){background:var(--accent);  animation:b3 1.3s ease-in-out infinite; height:80px;}
+    .bar:nth-child(7){background:var(--accent3); animation:b1 0.9s ease-in-out infinite; height:45px;}
+    @keyframes b1{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.3)}}
+    @keyframes b2{0%,100%{transform:scaleY(.5)}50%{transform:scaleY(1)}}
+    @keyframes b3{0%,100%{transform:scaleY(.8)}50%{transform:scaleY(.2)}}
+
+    /* ── Type art ── */
+    .type-art {
+      font-family: var(--ff-d);
+      color: rgba(242,160,77,.3);
+      text-align: center; line-height: 1.2;
+      letter-spacing: -.05em; padding:1rem;
+    }
+
+    .hob-num {
+      font-family:var(--ff-d); font-size:5rem; font-weight:300;
+      color:rgba(242,160,77,.07); line-height:1; margin-bottom:-.75rem;
+    }
+    .hob-lbl {
+      font-family:var(--ff-m); font-size:.68rem; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--accent); margin-bottom:.75rem;
+      display:flex; align-items:center; gap:.75rem;
+    }
+    .hob-lbl::before { content:''; width:16px; height:1px; background:var(--accent); }
+    .hob-title {
+      font-family:var(--ff-d); font-size:clamp(2rem,4vw,2.8rem);
+      font-weight:300; color:var(--text); line-height:1.2; margin-bottom:1.2rem;
+    }
+    .hob-title em { font-style:italic; color:var(--accent3); }
+    .hob-p { font-size:.93rem; color:var(--text2); line-height:1.85; margin-bottom:1rem; }
+    .picks {
+      margin-top:1.4rem; padding:1.2rem;
+      background:var(--glass); border:1px solid var(--gb); border-radius:10px;
+    }
+    .picks-lbl { font-family:var(--ff-m); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.7rem; }
+    .pick {
+      display:flex; align-items:flex-start; gap:.7rem;
+      padding:.45rem 0; border-bottom:1px solid rgba(242,160,77,.07);
+      font-size:.86rem; color:var(--text2); line-height:1.6;
+    }
+    .pick:last-child { border-bottom:none; }
+    .pick::before { content:'→'; color:var(--accent); font-size:.72rem; margin-top:.1rem; flex-shrink:0; }
+
+    @media(max-width:720px){
+      .hob-grid,.hob-grid.rev { grid-template-columns:1fr; direction:ltr; }
+      .hob-visual { display:none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Ishita <span>Bansal</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="th-icon th-sun">☀</span>
+      <span class="th-icon th-moon">◑</span>
+    </button>
+    <button class="nav-hbg" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-hero">
+      <div class="container">
+        <p class="sec-label reveal">Beyond the lab</p>
+        <h1 class="reveal rv1">Things I <em>love</em></h1>
+        <p class="reveal rv2">Life is too short to just be good at one thing. Here's proof.</p>
+      </div>
+    </div>
+
+    <!-- DANCE -->
+    <div class="hob-sec">
+      <div class="container">
+        <div class="hob-grid">
+          <div class="hob-visual vis-music reveal">
+            <div class="bars">
+              <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+              <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+              <div class="bar"></div>
+            </div>
+          </div>
+          <div class="reveal rv1">
+            <div class="hob-num">01</div>
+            <div class="hob-lbl">Movement &amp; rhythm</div>
+            <h2 class="hob-title">Kathak &amp; <em>Dance</em></h2>
+            <p class="hob-p">I trained in Kathak — a classical Indian dance form that's equal parts footwork, storytelling, and devotion. There's something about the precision of it: every gesture has meaning, every beat is intentional. It's the most embodied form of language I know.</p>
+            <p class="hob-p">I also trained in gymnastics, which taught me a completely different relationship with my body — one built on trust and controlled recklessness. I still love to dance, any style, anywhere.</p>
+            <div class="picks">
+              <div class="picks-lbl">What dance taught me</div>
+              <div class="pick">That being present in your body is a skill, not a default</div>
+              <div class="pick">That performance and sincerity aren't opposites</div>
+              <div class="pick">That rhythm is a language with no translation needed</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PHOTOGRAPHY + VIDEO EDITING -->
+    <div class="hob-sec">
+      <div class="container">
+        <div class="hob-grid rev">
+          <div class="hob-visual vis-photo reveal">
+            <div class="cam"><div class="cam-center"></div></div>
+          </div>
+          <div class="reveal rv1">
+            <div class="hob-num">02</div>
+            <div class="hob-lbl">Visual storytelling</div>
+            <h2 class="hob-title">Photography &amp; <em>Video Editing</em></h2>
+            <p class="hob-p">I photograph and I edit. The two go together — one is about seeing the moment, the other is about deciding what the moment means in retrospect. I find the editing process almost meditative: choosing cuts, pacing, the quiet authority of a well-timed transition.</p>
+            <p class="hob-p">Old Hyderabad is endlessly photogenic. I've spent a lot of time in Charminar's corridors, the evening chai stalls, the walls that look like they've survived fifty monsoons and are proud of it.</p>
+            <div class="picks">
+              <div class="picks-lbl">Favourite subjects</div>
+              <div class="pick">Old Hyderabad streets — texture, light, time</div>
+              <div class="pick">Solo travel frames — moments when nobody knows you</div>
+              <div class="pick">People doing ordinary things extraordinarily well</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- READING -->
+    <div class="hob-sec">
+      <div class="container">
+        <div class="hob-grid">
+          <div class="hob-visual vis-books reveal">
+            <div class="books-art">
+              <div class="book" style="width:120px;height:18px;background:rgba(242,160,77,.35);"></div>
+              <div class="book" style="width:110px;height:18px;background:rgba(212,97,74,.3);"></div>
+              <div class="book" style="width:130px;height:18px;background:rgba(234,201,142,.25);"></div>
+              <div class="book" style="width:105px;height:18px;background:rgba(242,160,77,.2);"></div>
+              <div class="book" style="width:118px;height:18px;background:rgba(212,97,74,.35);"></div>
+            </div>
+          </div>
+          <div class="reveal rv1">
+            <div class="hob-num">03</div>
+            <div class="hob-lbl">Words &amp; worlds</div>
+            <h2 class="hob-title">Reading <em>Fiction</em></h2>
+            <p class="hob-p">Mostly fiction. I need books that take me somewhere else completely — stories that make the real world feel a little more possible, or a little more strange, depending on what I need that week.</p>
+            <p class="hob-p">Fiction is where I find the questions my research can't ask yet. It's where language does the things that linguists spend careers trying to explain, except it just does them without being asked.</p>
+            <div class="picks">
+              <div class="picks-lbl">What I look for in a book</div>
+              <div class="pick">Characters who feel more real than some people I know</div>
+              <div class="pick">A world I can't leave for the first hundred pages</div>
+              <div class="pick">An ending that changes how you read the beginning</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SOLO TRAVEL + SPORTS -->
+    <div class="hob-sec">
+      <div class="container">
+        <div class="hob-grid rev">
+          <div class="hob-visual vis-type reveal">
+            <div class="type-art">
+              <div style="font-size:4rem;line-height:1;">→</div>
+              <div style="font-size:1.4rem;color:rgba(242,160,77,.5);margin-top:.5rem;">solo</div>
+              <div style="font-size:1rem;color:rgba(212,97,74,.4);">travel</div>
+            </div>
+          </div>
+          <div class="reveal rv1">
+            <div class="hob-num">04</div>
+            <div class="hob-lbl">Movement &amp; exploration</div>
+            <h2 class="hob-title">Solo Travel, Tennis &amp; <em>More</em></h2>
+            <p class="hob-p">Solo travel is its own kind of education. You're entirely responsible for what you notice, what you miss, and what you do with the unexpected. I find something deeply clarifying about being in a place where nobody knows me — no context, no history, just what I make of the next few hours.</p>
+            <p class="hob-p">On campus: tennis is my main sport. There's something about the back-and-forth of it — almost conversational. I'll also pick up a badminton racket when someone asks. And I paint — usually when words aren't working and I need a different kind of thinking.</p>
+            <div class="picks">
+              <div class="picks-lbl">The rest of the list</div>
+              <div class="pick">Painting — usually abstract, always unplanned</div>
+              <div class="pick">Puzzles — the harder the better, no shame</div>
+              <div class="pick">Singing to myself — exclusively, never for an audience</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <span>© 2025 Ishita Bansal</span>
+      <span>IIIT Hyderabad · 2022–2027</span>
+      <span><a href="contact.html">Get in touch →</a></span>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

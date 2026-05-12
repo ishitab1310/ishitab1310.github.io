@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — Ishita Bansal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>/* no-flash */(function(){var t=localStorage.getItem("ib-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <style>
+    /* ── FEATURED ── */
+    .featured {
+      display: block; text-decoration: none; color: inherit;
+      background: var(--glass); border: 1px solid var(--gb);
+      border-radius: 16px; padding: clamp(1.75rem,4vw,2.75rem);
+      margin-bottom: 3rem; position: relative; overflow: hidden;
+      transition: border-color var(--t), box-shadow var(--t);
+    }
+    .featured::before {
+      content: 'FEATURED';
+      position:absolute; top:1.5rem; right:1.75rem;
+      font-family:var(--ff-m); font-size:.62rem; letter-spacing:.2em;
+      color:var(--accent); border:1px solid rgba(242,160,77,.28);
+      padding:.18rem .6rem; border-radius:999px;
+    }
+    .featured:hover { border-color:var(--gb-h); box-shadow:0 20px 60px rgba(242,160,77,.06); }
+    .feat-cat { font-family:var(--ff-m); font-size:.68rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; }
+    .feat-title {
+      font-family:var(--ff-d);
+      font-size:clamp(1.75rem,4vw,2.7rem); font-weight:300;
+      color:var(--text); line-height:1.25; margin-bottom:1rem;
+    }
+    .feat-title em { font-style:italic; color:var(--accent3); }
+    .feat-excerpt { font-size:.94rem; color:var(--text2); max-width:620px; line-height:1.85; margin-bottom:1.5rem; }
+    .feat-meta { display:flex; align-items:center; gap:1rem; font-family:var(--ff-m); font-size:.68rem; color:var(--text3); }
+    .feat-meta-d { color:var(--accent); }
+
+    /* ── BLOG GRID ── */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(290px,1fr));
+      gap: 1.4rem;
+    }
+    .bc {
+      display:block; text-decoration:none; color:inherit;
+      background:var(--glass); border:1px solid var(--gb); border-radius:14px;
+      padding:1.65rem; display:flex; flex-direction:column; gap:.7rem;
+      position:relative; overflow:hidden;
+      transition:background var(--t),border-color var(--t),transform var(--t),box-shadow var(--t);
+    }
+    .bc::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(90deg,transparent,rgba(242,160,77,.45),transparent);
+      opacity:0; transition:opacity var(--t);
+    }
+    .bc:hover { background:var(--glass-h); border-color:var(--gb-h); transform:translateY(-3px); box-shadow:0 18px 50px rgba(242,160,77,.06); }
+    .bc:hover::before { opacity:1; }
+    .bc-cat  { font-family:var(--ff-m); font-size:.63rem; letter-spacing:.15em; text-transform:uppercase; color:var(--accent); }
+    .bc-title { font-family:var(--ff-d); font-size:1.25rem; font-weight:400; color:var(--text); line-height:1.35; flex:1; }
+    .bc-exc   { font-size:.84rem; color:var(--text2); line-height:1.72; }
+    .bc-foot  { display:flex; justify-content:space-between; align-items:center; font-family:var(--ff-m); font-size:.65rem; color:var(--text3); margin-top:.4rem; }
+    .bc-more  { color:var(--accent); }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Ishita <span>Bansal</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="th-icon th-sun">☀</span>
+      <span class="th-icon th-moon">◑</span>
+    </button>
+    <button class="nav-hbg" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-wrap">
+    <div class="page-hero">
+      <div class="container">
+        <p class="sec-label reveal">Essays &amp; thoughts</p>
+        <h1 class="reveal rv1">The <em>Blog</em></h1>
+        <p class="reveal rv2">Long-form thinking on language, design, research, and ideas that won't leave me alone.</p>
+      </div>
+    </div>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+
+        <!-- FEATURED -->
+        <a href="#" class="featured reveal">
+          <div class="feat-cat">Life at IIIT Hyderabad</div>
+          <h2 class="feat-title">What nobody tells you before you join <em>IIIT-H</em></h2>
+          <p class="feat-excerpt">
+            Four years in, trying to debug my degree alongside my code. The honest, unfiltered version of what it's actually like — the chaos, the brilliance, the 3am assignments, and why I'd still choose it again.
+          </p>
+          <div class="feat-meta">
+            <span>Coming soon</span>
+            <span class="feat-meta-d">·</span>
+            <span>Long read</span>
+            <span class="feat-meta-d">·</span>
+            <span>Read the essay →</span>
+          </div>
+        </a>
+
+        <!-- GRID -->
+        <div class="blog-grid">
+
+          <a href="#" class="bc reveal">
+            <div class="bc-cat">For First Years</div>
+            <div class="bc-title">Things I wish someone had told me in first year</div>
+            <div class="bc-exc">The unspoken stuff — about courses, about people, about how to actually survive and sometimes thrive at a place that throws everything at you at once.</div>
+            <div class="bc-foot"><span>Coming soon</span><span class="bc-more">Soon →</span></div>
+          </a>
+
+          <a href="#" class="bc reveal rv1">
+            <div class="bc-cat">Research</div>
+            <div class="bc-title">Why I study how Gen Alpha talks — and what it says about AI</div>
+            <div class="bc-exc">My ACL paper started from a genuine question: why can't AI systems translate "no cap fr fr on god" correctly? The answer is weirder and more important than I expected.</div>
+            <div class="bc-foot"><span>Coming soon</span><span class="bc-more">Soon →</span></div>
+          </a>
+
+          <a href="#" class="bc reveal rv2">
+            <div class="bc-cat">Motivation</div>
+            <div class="bc-title">A letter to Gen Alpha researchers who feel like frauds</div>
+            <div class="bc-exc">Imposter syndrome hits different when you're studying language evolution while still figuring out your own. Some thoughts from someone who's been there — and is still there, honestly.</div>
+            <div class="bc-foot"><span>Coming soon</span><span class="bc-more">Soon →</span></div>
+          </a>
+
+          <a href="#" class="bc reveal rv1">
+            <div class="bc-cat">Life</div>
+            <div class="bc-title">Some of my best days</div>
+            <div class="bc-exc">Not a highlight reel. Just the specific, unremarkable days that turned out to matter — the solo trips, the 2am conversations, the moments where life felt exactly right.</div>
+            <div class="bc-foot"><span>Coming soon</span><span class="bc-more">Soon →</span></div>
+          </a>
+
+          <a href="#" class="bc reveal rv2">
+            <div class="bc-cat">Dual Degree Life</div>
+            <div class="bc-title">CS + Linguistics: what happens when your degree confuses everyone</div>
+            <div class="bc-exc">People in CS think I study English. People in Linguistics think I write compilers. The truth is stranger and more interesting than either. Here's what a CLD degree actually is.</div>
+            <div class="bc-foot"><span>Coming soon</span><span class="bc-more">Soon →</span></div>
+          </a>
+
+          <a href="#" class="bc reveal rv3">
+            <div class="bc-cat">Philosophy</div>
+            <div class="bc-title">What if we lived in a world where…?</div>
+            <div class="bc-exc">The question I keep asking. About language, about technology, about how different everything could be — and whether different is always better. My favourite kind of rabbit hole.</div>
+            <div class="bc-foot"><span>Coming soon</span><span class="bc-more">Soon →</span></div>
+          </a>
+
+        </div>
+
+        <div style="text-align:center;margin-top:3.5rem;" class="reveal">
+          <p style="font-family:var(--ff-m);font-size:.75rem;color:var(--text3);margin-bottom:1.25rem;">More essays on the way — subscribe or check back soon.</p>
+          <a href="contact.html" class="btn btn-ghost">Say hello instead →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>© 2025 Ishita Bansal</span>
+      <span>IIIT Hyderabad · 2022–2027</span>
+      <span><a href="contact.html">Get in touch →</a></span>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

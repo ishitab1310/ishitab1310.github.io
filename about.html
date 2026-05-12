@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Ishita Bansal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>/* no-flash */(function(){var t=localStorage.getItem("ib-theme");if(t)document.documentElement.setAttribute("data-theme",t);})();</script>
+  <style>
+    /* ── BIO ── */
+    .bio-grid {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: clamp(40px,7vw,96px);
+      align-items: start;
+    }
+    .bio-sidebar {}
+    .b-photo {
+      aspect-ratio: 3/4;
+      background: var(--bg3);
+      border: 1px solid var(--gb);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+    }
+    .b-photo img { width:100%; height:100%; object-fit:cover; }
+    .b-photo .ph { font-family:var(--ff-m); font-size:.65rem; color:var(--text3); text-align:center; line-height:2; }
+    .b-facts { display:flex; flex-direction:column; gap:.6rem; }
+    .b-fact {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: .55rem 0;
+      border-bottom: 1px solid rgba(242,160,77,0.08);
+      font-family: var(--ff-m);
+      font-size: .7rem;
+    }
+    .b-fact-k { color: var(--text3); letter-spacing:.08em; }
+    .b-fact-v { color: var(--text2); text-align:right; }
+    .b-fact-v.open { color: #6FDC8C; }
+    .avail-dot {
+      display: inline-block; width:7px; height:7px;
+      border-radius:50%; background:#6FDC8C;
+      margin-right:5px; vertical-align:middle;
+      animation: pd 2s ease-in-out infinite;
+    }
+    @keyframes pd{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.4;transform:scale(.7)}}
+    .big-quote {
+      font-family: var(--ff-d);
+      font-size: clamp(1.5rem,3.2vw,2.3rem);
+      font-weight: 300; line-height: 1.35;
+      color: var(--text); margin-bottom: 1.5rem;
+    }
+    .big-quote em { font-style:italic; color:var(--accent3); }
+    .bio-p { font-size:.95rem; color:var(--text2); line-height:1.9; margin-bottom:1.2rem; }
+    @media(max-width:780px){ .bio-grid{grid-template-columns:1fr;} .bio-sidebar{display:none;} }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap: 1.3rem;
+    }
+    .sg-label {
+      font-family: var(--ff-m); font-size:.67rem;
+      letter-spacing:.14em; text-transform:uppercase;
+      color: var(--accent); margin-bottom:.9rem;
+    }
+    .sg-tags { display:flex; flex-wrap:wrap; gap:.45rem; }
+
+    /* ── NOW ── */
+    .now-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.25rem;
+    }
+    .now-card {
+      padding: 1.4rem; background:var(--glass);
+      border:1px solid var(--gb); border-radius:12px;
+    }
+    .now-lbl { font-family:var(--ff-m); font-size:.62rem; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:.7rem; }
+    .now-t { font-family:var(--ff-d); font-size:1.1rem; color:var(--text); margin-bottom:.3rem; }
+    .now-s { font-size:.84rem; color:var(--text2); line-height:1.7; }
+    @media(max-width:700px){ .now-grid{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Ishita <span>Bansal</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="th-icon th-sun">☀</span>
+      <span class="th-icon th-moon">◑</span>
+    </button>
+    <button class="nav-hbg" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <div class="page-wrap">
+
+    <div class="page-hero">
+      <div class="container">
+        <p class="sec-label reveal">Who I am</p>
+        <h1 class="reveal rv1">About <em>me</em></h1>
+        <p class="reveal rv2">Researcher, language lover, and occasional overthinker.</p>
+      </div>
+    </div>
+
+    <!-- BIO -->
+    <section class="section" style="padding-top:0; border-bottom:1px solid var(--gb);">
+      <div class="container">
+        <div class="bio-grid">
+
+          <div class="bio-sidebar reveal">
+            <div class="b-photo">
+              <img src="images/profile.jpeg" alt="Ishita Bansal">
+            </div>
+            <div class="b-facts">
+              <div class="b-fact"><span class="b-fact-k">Location</span><span class="b-fact-v">Hyderabad, IN</span></div>
+              <div class="b-fact"><span class="b-fact-k">Email</span><span class="b-fact-v" style="font-size:.62rem;">ishitab1310@gmail.com</span></div>
+              <div class="b-fact"><span class="b-fact-k">Program</span><span class="b-fact-v">B.Tech CS + MS CL</span></div>
+              <div class="b-fact"><span class="b-fact-k">Institute</span><span class="b-fact-v">IIIT Hyderabad</span></div>
+              <div class="b-fact"><span class="b-fact-k">Batch</span><span class="b-fact-v">2022 — 2027</span></div>
+              <div class="b-fact"><span class="b-fact-k">Status</span><span class="b-fact-v open"><span class="avail-dot"></span>Open to roles</span></div>
+            </div>
+          </div>
+
+          <div>
+            <div class="wdiv reveal"></div>
+            <p class="big-quote reveal rv1">
+              What if we lived in a world <em>where…?</em>
+            </p>
+            <p class="bio-p reveal rv2">
+              I'm Ishita — a 4th year Dual Degree student at IIIT Hyderabad doing B.Tech Computer Science and MS Computational Linguistics. I'm slow to warm up to people, but once you break through that shell, I'm very talkative. I can chat about literally anything, and I try to live life to the fullest. It's better to just do it anyway — you might not remember the embarrassing moments, but regrets are hard to forget.
+            </p>
+            <p class="bio-p reveal rv3">
+              I appreciate the sheer beauty of being alive. How wild it is that I get to exist in this world — and how much greater I can make it for people who come after me. That's the kind of thing that keeps me up at night, in a good way.
+            </p>
+            <p class="bio-p reveal rv4">
+              I use humour as a coping mechanism and casual roasting as my language of affection. ESFP, sometimes introvert. Powered by infinite coffees, pending deadlines, and very random playlists. Trying to debug my life and my code for the past four years — progress on both is ongoing.
+            </p>
+            <div style="display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;" class="reveal rv4">
+              <a href="projects.html" class="btn btn-primary">See Projects →</a>
+              <a href="contact.html"  class="btn btn-ghost">Get in Touch</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section class="section" style="border-bottom:1px solid var(--gb);">
+      <div class="container">
+        <div class="sec-hd">
+          <p class="sec-label reveal">Toolkit</p>
+          <h2 class="sec-title reveal rv1">Skills &amp; <em>Technologies</em></h2>
+        </div>
+        <div class="skills-grid">
+          <div class="card reveal">
+            <div class="sg-label">Programming</div>
+            <div class="sg-tags">
+              <span class="tag">Python</span><span class="tag">C++</span><span class="tag">R</span>
+              <span class="tag">JavaScript</span><span class="tag">Bash</span>
+            </div>
+          </div>
+          <div class="card reveal rv1">
+            <div class="sg-label">NLP &amp; ML Frameworks</div>
+            <div class="sg-tags">
+              <span class="tag">PyTorch</span><span class="tag">HuggingFace</span><span class="tag">spaCy</span>
+              <span class="tag">NLTK</span><span class="tag">scikit-learn</span><span class="tag">Transformers</span>
+            </div>
+          </div>
+          <div class="card reveal rv2">
+            <div class="sg-label">NLP Research Areas</div>
+            <div class="sg-tags">
+              <span class="tag">LLMs</span><span class="tag">Dialogue Systems</span>
+              <span class="tag">Low-resource NLP</span><span class="tag">NER</span>
+              <span class="tag">Morphology</span><span class="tag">Discourse</span>
+            </div>
+          </div>
+          <div class="card reveal rv1">
+            <div class="sg-label">Linguistics</div>
+            <div class="sg-tags">
+              <span class="tag">Morphology</span><span class="tag">Syntax</span>
+              <span class="tag">Phonology</span><span class="tag">Sanskrit</span>
+              <span class="tag">Hindi</span><span class="tag">Pragmatics</span>
+            </div>
+          </div>
+          <div class="card reveal rv2">
+            <div class="sg-label">Design &amp; Visualization</div>
+            <div class="sg-tags">
+              <span class="tag">Figma</span><span class="tag">D3.js</span><span class="tag">p5.js</span>
+              <span class="tag">HTML/CSS</span><span class="tag">Adobe Illustrator</span>
+            </div>
+          </div>
+          <div class="card reveal rv3">
+            <div class="sg-label">Dev &amp; Tools</div>
+            <div class="sg-tags">
+              <span class="tag">Git</span><span class="tag">Linux</span><span class="tag">LaTeX</span>
+              <span class="tag">Docker</span><span class="tag">Jupyter</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section class="section" style="border-bottom:1px solid var(--gb);">
+      <div class="container">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,7vw,96px);">
+          <div>
+            <div class="sec-hd">
+              <p class="sec-label reveal">Education</p>
+              <h2 class="sec-title reveal rv1"><em>Academic</em> journey</h2>
+            </div>
+            <div class="timeline">
+              <div class="tl-item reveal rv2">
+                <div class="tl-year">Oct 2022 — May 2027</div>
+                <div class="tl-title">B.Tech CS + MS Computational Linguistics</div>
+                <div class="tl-sub">IIIT Hyderabad · Dual Degree<br>Language Technologies Research Centre (LTRC)</div>
+              </div>
+              <div class="tl-item reveal rv3">
+                <div class="tl-year">Before 2022</div>
+                <div class="tl-title">Class XII</div>
+                <div class="tl-sub">Bhavan Vidyalaya · Panchkula<br>PCM </div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="sec-hd">
+              <p class="sec-label reveal">Right now</p>
+              <h2 class="sec-title reveal rv1">What I'm <em>up to</em></h2>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:1rem;">
+              <div class="now-card reveal rv2">
+                <div class="now-lbl">📄 Working on</div>
+                <div class="now-t">MS Thesis + Gen Alpha Slang Research</div>
+                <div class="now-s">Published at ACL SRW 2025 — studying how Gen Alpha slang evolves and what that means for NLP models.</div>
+              </div>
+              <div class="now-card reveal rv3">
+                <div class="now-lbl">📚 Reading</div>
+                <div class="now-t">Mostly fiction right now</div>
+                <div class="now-s">I love fiction — it's my escape hatch from the world of tokens and embeddings.</div>
+              </div>
+              <div class="now-card reveal rv4">
+                <div class="now-lbl">🎵 Listening to</div>
+                <div class="now-t">Random playlists, always</div>
+                <div class="now-s">My playlists have no theme. Classical, indie, Kathak practice tracks, chaotic pop — sometimes all in one sitting.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="site-footer">
+      <span>© 2025 Ishita Bansal</span>
+      <span>IIIT Hyderabad · 2022–2027</span>
+      <span><a href="contact.html">Get in touch →</a></span>
+    </footer>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

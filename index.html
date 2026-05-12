@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ishita Bansal — Portfolio</title>
+  <meta name="description" content="Portfolio of Ishita Bansal — Computational Linguist, NLP Researcher, and CS+Linguistics Dual Degree student at IIIT Hyderabad.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+(function () {
+  const t = localStorage.getItem('ib-theme') || 'dark';
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+  <style>
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100svh;
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    #pc {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+    }
+    .hero-dots {
+      position: absolute; inset: 0;
+      background-image: radial-gradient(circle, rgba(242,160,77,0.07) 1px, transparent 1px);
+      background-size: 44px 44px;
+      mask-image: radial-gradient(ellipse at 30% 50%, black 5%, transparent 70%);
+      -webkit-mask-image: radial-gradient(ellipse at 30% 50%, black 5%, transparent 70%);
+    }
+    .hero-glow {
+      position: absolute;
+      top: 50%; left: 20%;
+      transform: translate(-50%, -50%);
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(155,114,184,0.18) 0%, rgba(196,168,212,0.07) 50%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 clamp(20px,5vw,72px);
+    }
+    .h-eye {
+      display: flex; align-items: center; gap: 1rem;
+      font-family: var(--ff-m);
+      font-size: .68rem; letter-spacing: .2em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 1.6rem;
+      opacity: 0; animation: fuA .8s var(--ease) .3s forwards;
+    }
+    .h-eye-line { width: 32px; height: 1px; background: var(--accent); }
+    .h-name {
+      font-family: var(--ff-d);
+      font-size: clamp(4rem, 12.5vw, 9.5rem);
+      font-weight: 300;
+      line-height: .95;
+      letter-spacing: -.03em;
+      margin-bottom: 2rem;
+      opacity: 0; animation: fuA .9s var(--ease) .5s forwards;
+    }
+    .h-name .l1 { display: block; color: var(--text); }
+    .h-name .l2 {
+      display: block;
+      color: transparent;
+      -webkit-text-stroke: 1.8px rgba(183,110,121,0.58);
+      filter: drop-shadow(0 0 12px rgba(183,110,121,0.18));
+    }
+    .h-role {
+      display: flex; align-items: center; gap: .65rem;
+      font-family: var(--ff-m);
+      font-size: clamp(.85rem, 2vw, 1.05rem);
+      color: var(--text2); margin-bottom: 1.4rem;
+      opacity: 0; animation: fuA .8s var(--ease) .75s forwards;
+    }
+    .h-role-d { color: var(--accent); }
+    #roleText { color: var(--accent3); }
+    .blink { color: var(--accent); animation: blink 1s step-end infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    .h-meta {
+      font-family: var(--ff-m);
+      font-size: .78rem; letter-spacing: .05em;
+      color: var(--text3); margin-bottom: 2.5rem;
+      opacity: 0; animation: fuA .8s var(--ease) .9s forwards;
+    }
+    .h-meta span { color: var(--text2); }
+    .h-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+      opacity: 0; animation: fuA .8s var(--ease) 1.1s forwards;
+    }
+    .h-scroll {
+      position: absolute; bottom: 2.5rem; left: clamp(20px,5vw,72px);
+      display: flex; align-items: center; gap: 1rem;
+      font-family: var(--ff-m); font-size: .63rem;
+      letter-spacing: .2em; text-transform: uppercase; color: var(--text3);
+      opacity: 0; animation: fuA .8s var(--ease) 1.5s forwards;
+    }
+    .h-scroll-ln {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      animation: sp 2s ease-in-out infinite;
+    }
+    @keyframes sp { 0%,100%{transform:scaleX(1);opacity:1} 50%{transform:scaleX(.5);opacity:.4} }
+    @keyframes fuA { from{opacity:0;transform:translateY(28px)} to{opacity:1;transform:none} }
+
+    /* ── INTRO ── */
+    .intro { padding: clamp(80px,12vw,140px) 0 clamp(60px,8vw,100px); border-bottom: 1px solid var(--gb); }
+    .intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: clamp(40px,6vw,80px);
+      align-items: center;
+    }
+    .photo-wrap { position: relative; }
+    .photo-frame {
+      width: 100%; max-width: 320px;
+      aspect-ratio: 3/4;
+      background: var(--bg3);
+      border: 1px solid var(--gb); border-radius: 12px;
+      overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .photo-frame img { width:100%; height:100%; object-fit:cover; }
+    .photo-frame .ph {
+      font-family: var(--ff-m); font-size: .68rem; color: var(--text3);
+      text-align: center; line-height: 2; letter-spacing:.08em;
+    }
+    .pc-tl,.pc-br {
+      position: absolute;
+      width: 22px; height: 22px;
+      border-color: var(--accent); border-style: solid; opacity: .5;
+    }
+    .pc-tl { top:-5px; left:-5px; border-width:2px 0 0 2px; }
+    .pc-br { bottom:-5px; right:-5px; border-width:0 2px 2px 0; }
+    .i-greeting {
+      font-family:var(--ff-m); font-size:.7rem; letter-spacing:.2em;
+      text-transform:uppercase; color:var(--accent); margin-bottom:1.2rem;
+      display:flex; align-items:center; gap:.75rem;
+    }
+    .i-greeting::before { content:''; width:18px; height:1px; background:var(--accent); }
+    .i-hl {
+      font-family:var(--ff-d);
+      font-size:clamp(1.7rem,3.5vw,2.5rem); font-weight:300;
+      line-height:1.3; margin-bottom:1.4rem; color:var(--text);
+    }
+    .i-hl em { font-style:italic; color:var(--accent3); }
+    .i-body { font-size:.95rem; color:var(--text2); line-height:1.9; margin-bottom:1.2rem; }
+    .i-stats {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1rem; margin-top:2.5rem;
+    }
+    .stat {
+      padding:.9rem; background:var(--glass);
+      border:1px solid var(--gb); border-radius:10px; text-align:center;
+    }
+    .stat-v {
+      font-family:var(--ff-d); font-size:2.1rem; font-weight:300;
+      color:var(--accent); line-height:1; margin-bottom:.3rem;
+    }
+    .stat-l { font-family:var(--ff-m); font-size:.6rem; letter-spacing:.1em; text-transform:uppercase; color:var(--text3); }
+    @media(max-width:720px) {
+      .intro-grid { grid-template-columns:1fr; }
+      .photo-wrap { display:none; }
+    }
+
+    /* ── EXPLORE ── */
+    .explore { padding: clamp(60px,8vw,100px) 0 clamp(80px,12vw,140px); }
+    .explore-grid {
+      display: grid;
+      grid-template-columns: repeat(3,1fr);
+      gap: 1.25rem;
+    }
+    .e-card {
+      background:var(--glass); border:1px solid var(--gb); border-radius:14px;
+      padding:1.75rem; text-decoration:none; color:var(--text);
+      display:block; position:relative; overflow:hidden;
+      transition:background var(--t),border-color var(--t),transform var(--t),box-shadow var(--t);
+    }
+    .e-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:1px;
+      background:linear-gradient(90deg,transparent,var(--accent),transparent);
+      opacity:0; transition:opacity var(--t);
+    }
+    .e-card:hover { background:var(--glass-h); border-color:var(--gb-h); transform:translateY(-4px); box-shadow:0 20px 60px rgba(242,160,77,0.07); }
+    .e-card:hover::before { opacity:1; }
+    .e-icon { font-family:var(--ff-d); font-size:2.4rem; font-weight:300; color:var(--accent); opacity:.6; margin-bottom:1.2rem; line-height:1; }
+    .e-name { font-family:var(--ff-d); font-size:1.3rem; font-weight:400; color:var(--text); margin-bottom:.45rem; }
+    .e-desc { font-size:.84rem; color:var(--text2); line-height:1.7; }
+    .e-arrow { position:absolute; bottom:1.5rem; right:1.75rem; font-size:.75rem; color:var(--accent); opacity:0; transition:opacity var(--t),transform var(--t); }
+    .e-card:hover .e-arrow { opacity:1; transform:translateX(4px); }
+    @media(max-width:900px){.explore-grid{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:560px){.explore-grid{grid-template-columns:1fr;}}
+  </style>
+</head>
+<body>
+  <div class="cursor"></div>
+  <div class="cursor-ring"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">Ishita <span>Bansal</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="achievements.html">Achievements</a></li>
+      <li><a href="hobbies.html">Hobbies</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme" title="Switch theme">
+      <span class="th-icon th-sun">☀</span>
+      <span class="th-icon th-moon">◑</span>
+    </button>
+    <button class="nav-hbg" onclick="toggleNav()" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <canvas id="pc"></canvas>
+    <div class="hero-dots"></div>
+    <div class="hero-glow"></div>
+
+    <div class="hero-content">
+      <div class="h-eye">
+        <span class="h-eye-line"></span>
+        <span>Portfolio · IIIT Hyderabad · 2025</span>
+      </div>
+
+      <h1 class="h-name">
+        <span class="l1">Ishita</span>
+        <span class="l2">Bansal</span>
+      </h1>
+
+      <div class="h-role">
+        <span class="h-role-d">—</span>
+        <span id="roleText"></span>
+        <span class="blink">|</span>
+      </div>
+
+      <p class="h-meta">
+        B.Tech CS + MS Computational Linguistics &nbsp;·&nbsp;
+        <span>IIIT Hyderabad, 2022–2027</span>
+      </p>
+
+      <div class="h-actions">
+        <a href="projects.html" class="btn btn-primary">View My Work →</a>
+        <a href="about.html"    class="btn btn-ghost">About Me</a>
+      </div>
+    </div>
+
+    <div class="h-scroll">
+      <div class="h-scroll-ln"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ── INTRO ── -->
+  <section class="intro">
+    <div class="container">
+      <div class="intro-grid">
+
+        <div class="photo-wrap reveal">
+          <div class="photo-frame">
+            <div class="pc-tl"></div>
+            <div class="pc-br"></div>
+            <img src="images/profile.jpeg" alt="Ishita Bansal">
+          </div>
+        </div>
+
+        <div>
+          <p class="i-greeting reveal">Hello there</p>
+          <h2 class="i-hl reveal rv1">
+            What if we lived in a world <em>where…?</em>
+          </h2>
+          <p class="i-body reveal rv2">
+            I'm Ishita — powered by infinite coffees, pending deadlines, and random playlists. A 4th year B.Tech CS + MS Computational Linguistics student at IIIT Hyderabad, trying to debug my life and my code for the past four years.
+          </p>
+          <p class="i-body reveal rv3">
+            I use humour as a coping mechanism, casual roasting as my love language, and research as my excuse to ask the questions nobody else is bothered to ask. I appreciate how extraordinary it is to be alive — and I want to make that extraordinary for people who come after me too.
+          </p>
+          <div class="h-actions reveal rv4" style="margin-top:1.75rem;">
+            <a href="contact.html" class="btn btn-primary">Get in Touch →</a>
+            <a href="projects.html" class="btn btn-ghost">See Projects</a>
+          </div>
+          <div class="i-stats reveal rv4">
+            <div class="stat"><div class="stat-v">4<sup style="font-size:.45em">th</sup></div><div class="stat-l">Year Dual Degree</div></div>
+            <div class="stat"><div class="stat-v">8+</div><div class="stat-l">Projects</div></div>
+            <div class="stat"><div class="stat-v">1</div><div class="stat-l">ACL Paper</div></div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── EXPLORE ── -->
+  <section class="explore">
+    <div class="container">
+      <div class="sec-hd">
+        <p class="sec-label reveal">Navigate</p>
+        <h2 class="sec-title reveal rv1">Explore my <em>world</em></h2>
+      </div>
+
+      <div class="explore-grid">
+        <a href="about.html" class="e-card reveal">
+          <div class="e-icon">§</div>
+          <div class="e-name">About</div>
+          <div class="e-desc">Who I am, what I've built, and the skills I've developed along the way.</div>
+          <span class="e-arrow">→</span>
+        </a>
+        <a href="projects.html" class="e-card reveal rv1">
+          <div class="e-icon">◈</div>
+          <div class="e-name">Projects</div>
+          <div class="e-desc">NLP systems, linguistic tools, design experiments, and everything in between.</div>
+          <span class="e-arrow">→</span>
+        </a>
+        <a href="achievements.html" class="e-card reveal rv2">
+          <div class="e-icon">✦</div>
+          <div class="e-name">Achievements</div>
+          <div class="e-desc">Publications, awards, and academic milestones.</div>
+          <span class="e-arrow">→</span>
+        </a>
+        <a href="hobbies.html" class="e-card reveal rv1">
+          <div class="e-icon">◎</div>
+          <div class="e-name">Hobbies</div>
+          <div class="e-desc">Photography, reading, music, and what keeps me curious beyond the lab.</div>
+          <span class="e-arrow">→</span>
+        </a>
+        <a href="blog.html" class="e-card reveal rv2">
+          <div class="e-icon">✎</div>
+          <div class="e-name">Blog</div>
+          <div class="e-desc">Essays on language, design, research, and ideas that won't leave me alone.</div>
+          <span class="e-arrow">→</span>
+        </a>
+        <a href="contact.html" class="e-card reveal rv3">
+          <div class="e-icon">◐</div>
+          <div class="e-name">Contact</div>
+          <div class="e-desc">Research, collaboration, opportunities — my inbox is open.</div>
+          <span class="e-arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <span>© 2025 Ishita Bansal</span>
+    <span>B.Tech CS + MS CL · IIIT Hyderabad</span>
+    <span>Made with curiosity &amp; caffeine</span>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    /* ── EMBER PARTICLE CANVAS ── */
+    (function () {
+      const cv  = document.getElementById('pc');
+      const ctx = cv.getContext('2d');
+      function resize() { cv.width = window.innerWidth; cv.height = window.innerHeight; }
+      resize();
+      window.addEventListener('resize', resize);
+
+      const COLS = ['#B76E79','#C48A94','#D9AEB4','#8E4B5A','#E6C9CF','#A85C6B'];
+      class P {
+        constructor() { this.reset(); }
+        reset() {
+          this.x = Math.random() * cv.width;
+          this.y = cv.height + Math.random() * 40;
+          this.vx = (Math.random() - .5) * .45;
+          this.vy = -(Math.random() * .6 + .22);
+          this.r  = Math.random() * 2.2 + .4;
+          this.life = 0;
+          this.max  = Math.random() * 230 + 90;
+          this.col  = COLS[Math.floor(Math.random() * COLS.length)];
+        }
+        update() {
+          this.x += this.vx; this.y += this.vy;
+          this.vx += (Math.random() - .5) * .035;
+          this.life++;
+          if (this.life > this.max || this.y < -10) this.reset();
+        }
+        draw() {
+          const isLight = document.documentElement.getAttribute('data-theme') === 'light';
+const a = Math.sin((this.life / this.max) * Math.PI) * (isLight ? .78 : .52);
+          ctx.save();
+          ctx.globalAlpha = a;
+          ctx.shadowBlur  = this.r * (isLight ? 8 : 4.5);
+          ctx.shadowColor = this.col;
+          ctx.fillStyle   = this.col;
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      }
+      const pts = Array.from({ length: 90 }, () => {
+        const p = new P(); p.y = Math.random() * cv.height; p.life = Math.random() * p.max; return p;
+      });
+      (function loop() { ctx.clearRect(0, 0, cv.width, cv.height); pts.forEach(p => { p.update(); p.draw(); }); requestAnimationFrame(loop); })();
+    })();
+  </script>
+</body>
+</html>
